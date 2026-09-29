@@ -1,0 +1,16 @@
+# All presets process a complete input file through NeMo's internal chunked engine.
+# Cache/chunk lengths are in 80-ms encoder frames, not output frames.
+model:
+  path: checkpoints/nemotron_3_diarization/Nemotron-3-Diarization.nemo
+  device: cuda
+  strict: false  # matches NVIDIA's .nemo loading example; inspect load warnings
+inference:
+  spkcache_len: 264
+  fifo_len: 264
+  chunk_len: 9
+  chunk_right_context: 4
+  spkcache_update_period: 222
+postprocess:
+  threshold: 0.5
+  min_speech_duration: 0.10
+  max_gap_duration: 0.10
