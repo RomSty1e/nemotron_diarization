@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nemotron-diarization-lab"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = ["numpy", "omegaconf>=2.3", "soundfile", "huggingface_hub"]
+
+[tool.setuptools.packages.find]
+include = ["inference*", "scripts*"]
